@@ -78,7 +78,7 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
             }`}
 
             alt={movie.name}
-         <div/>
+        />
 
         ))}
 
