@@ -127,41 +127,49 @@ function App() {
         title="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow={true}
+        search={search}
       />
 
       <Row
         title="Trending Now"
         fetchUrl={requests.fetchTrending}
+       search={search} 
       />
 
       <Row
         title="Top Rated"
         fetchUrl={requests.fetchTopRated}
+        search={search}
       />
 
       <Row
         title="Action Movies"
         fetchUrl={requests.fetchActionMovies}
+        search={search}
       />
 
       <Row
         title="Comedy Movies"
         fetchUrl={requests.fetchComedyMovies}
+        search={search}
       />
 
       <Row
         title="Horror Movies"
         fetchUrl={requests.fetchHorrorMovies}
+        search={search}
       />
 
       <Row
         title="Romance Movies"
         fetchUrl={requests.fetchRomanceMovies}
+        search={search}
       />
 
       <Row
         title="Documentaries"
         fetchUrl={requests.fetchDocumentaries}
+        search={search}
       />
 
       <Footer />

@@ -32,7 +32,7 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 
     } else {
 
-      movieTrailer(movie?.title  movie?.name  "")
+      movieTrailer(movie?.title || movie?.name || "")
         .then((url) => {
 
           const urlParams = new URLSearchParams(new URL(url).search);
@@ -75,12 +75,12 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 
             src={https://image.tmdb.org/t/p/original/${
               isLargeRow ? movie.poster_path : movie.backdrop_path
-            }}
+            }
 
             alt={movie.name}
-          />
+         <div/>
 
-        ))}
+        ))
 
       </div>
 
