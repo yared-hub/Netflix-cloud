@@ -48,7 +48,11 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 //     movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
 //     movie?.name?.toLowerCase().includes(search.toLowerCase())
 //   );
-const filteredMovies = movies;
+const filteredMovies = movies.filter(
+  (movie) =>
+    movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
+    movie?.name?.toLowerCase().includes(search.toLowerCase())
+);
   const opts = {
     height: "390",
     width: "100%",
