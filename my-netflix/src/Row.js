@@ -58,7 +58,7 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
   };
 
   return (
-    <div className="row">
+    <div className="row-posters">
 
       <h2>{title}</h2>
 
