@@ -58,11 +58,11 @@ const filteredMovies = movies;
   };
 
   return (
-    <div className="row-posters">
+    <div className="row">
 
       <h2>{title}</h2>
 
-      <div className="row">
+      <div className="row__posters">
 
         {filteredMovies.map((movie) => (
 
@@ -71,7 +71,7 @@ const filteredMovies = movies;
 
             onClick={() => handleClick(movie)}
 
-            className={`row_poster ${isLargeRow && "row_posterLarge"}`}
+            className={`row__poster ${isLargeRow && "row__posterLarge"}`}
 
             src={`https://image.tmdb.org/t/p/original/${
               isLargeRow ? movie.poster_path : movie.backdrop_path
