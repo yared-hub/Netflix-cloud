@@ -71,16 +71,16 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 
             onClick={() => handleClick(movie)}
 
-            className={row_poster ${isLargeRow && "row_posterLarge"}}
+            className={'row_poster ${isLargeRow && "row_posterLarge"}'}
 
-            src={https://image.tmdb.org/t/p/original/${
+            src={'https://image.tmdb.org/t/p/original/${
               isLargeRow ? movie.poster_path : movie.backdrop_path
-            }
+            }''}
 
             alt={movie.name}
          <div/>
 
-        ))
+        ))}
 
       </div>
 
