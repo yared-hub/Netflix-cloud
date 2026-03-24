@@ -1,10 +1,17 @@
+import React from 'react';
 import './App.css';
-import Home from './pages/home/home';
+import Banner from './banner';
 
-function App () {
+function App() {
   return (
-    <div className="App">
-      <Home/>
+    <div className="app">
+      {/* Nav bar goes here */}
+      
+      <Banner />
+      
+      {/* Movie rows will be added here */}
+      {/* <Row title="NETFLIX ORIGINALS" fetchUrl={requests.fetchNetflixOriginals} /> */}
+      {/* <Row title="Trending Now" fetchUrl={requests.fetchTrending} /> */}
     </div>
   );
 }
