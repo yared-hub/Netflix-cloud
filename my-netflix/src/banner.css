@@ -1,6 +1,6 @@
 .banner {
   color: white;
-  height: 448px; /* ቁመቱ እንዲታይ የግድ ነው */
+  height: 80vh; /* ቁመቱ እንዲታይ የግድ ነው */
   position: relative;
   object-fit: contain;
   /* እዚህ ጋር background-image አያስፈልግም ምክንያቱም Banner.js ላይ ጽፈነዋል */
