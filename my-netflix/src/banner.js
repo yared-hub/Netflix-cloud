@@ -6,7 +6,7 @@ function banner() {
     <header className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: url("https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png"),
+        backgroundImage: "url('https://image.tmdb.org/t/p/original/wwemzKWzjKYJFfCeiB57q3r4Bcm.png')",
         backgroundPosition: "center center",
       }}
     >
