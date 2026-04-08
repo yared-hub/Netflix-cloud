@@ -1,7 +1,9 @@
-.banner  {
+.banner {
   color: white;
-  height: 448px;
+  height: 448px; /* ቁመቱ እንዲታይ የግድ ነው */
   position: relative;
+  object-fit: contain;
+  /* እዚህ ጋር background-image አያስፈልግም ምክንያቱም Banner.js ላይ ጽፈነዋል */
 }
 
 .banner_contents {
@@ -19,6 +21,7 @@
 .banner_button {
   cursor: pointer;
   color: #fff;
+  outline: none;
   border: none;
   font-weight: 700;
   border-radius: 0.2vw;
@@ -39,6 +42,7 @@
   padding-top: 1rem;
   font-size: 0.8rem;
   max-width: 360px;
+  height: 80px;
 }
 
 .banner--fadeBottom {
