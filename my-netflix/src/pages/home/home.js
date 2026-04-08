@@ -1,14 +1,12 @@
 import React from "react";
-import Banner from "../../banner"; // This imports your Banner component
+import Nav from "../../Nav";       // ናቭባሩን ጠራነው
+import Banner from "../../banner"; // ባነሩን ጠራነው
 
 const Home = () => {
   return (
     <div className="home">
-      {/* You can add your Navbar here later */}
-      
-      <Banner /> {/* This displays the Banner on your screen */}
-      
-      {/* You can add your Rows here later */}
+      <Nav />    {/* ናቭባሩን ከላይ አደረግነው */}
+      <Banner /> {/* ባነሩን ከታች አደረግነው */}
     </div>
   );
 };
