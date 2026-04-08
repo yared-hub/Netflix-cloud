@@ -6,7 +6,7 @@ function Banner() {
     <header className="banner"
       style={{
         backgroundSize: "cover",
-        backgroundImage: "url('https://en.wikipedia.org/wiki/The_Dark_Knight_%28soundtrack%29')",
+        backgroundImage: "url('https://i.pinimg.com/1200x/ea/a2/6e/eaa26e2c3bfa234c3cdd3c4d9fabad35.jpg')",
         backgroundPosition: "center center",
       }}
     >
