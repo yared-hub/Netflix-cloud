@@ -3,7 +3,7 @@ import axios from "./axios";
 import requests from "./requests";
 import "./banner.css";
 
-function Banner() {
+function banner() {
   const [movie, setMovie] = useState([]);
 
   useEffect(() => {
@@ -44,4 +44,4 @@ function Banner() {
   );
 }
 
-export default Banner;
+export default banner;
