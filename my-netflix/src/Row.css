@@ -1,27 +1,29 @@
 .row {
-    margin-left: 20px;
-    color: white;
+  margin-left: 20px;
+  color: white;
 }
 
 .row__posters {
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 20px;
+  display: flex; /* ምስሎቹን ጎን ለጎን ያሰልፋል */
+  overflow-y: hidden; /* ወደ ታች እንዳይወርድ */
+  overflow-x: scroll; /* ወደ ጎን እንዲንሸራተት */
+  padding: 20px;
 }
 
+/* Scrollbar-ው እንዳይታይ (Optional) */
 .row__posters::-webkit-scrollbar {
-    display: none; /* የScroll ባሩን ለመደበቅ */
+  display: none;
 }
 
 .row__poster {
-    object-fit: contain;
-    width: 100%;
-    max-height: 250px;
-    margin-right: 10px;
-    transition: transform 450ms;
+  object-fit: contain; /* ምስሉ ሳይቆረጥ ሳጥኑ ውስጥ እንዲገባ ያደርጋል */
+  width: 100%;
+  max-height: 250px; /* ቁመቱን በመቀነስ ሙሉ ምስሉ እንዲታይ ያደርጋል */
+  margin-right: 10px;
+  transition: transform 450ms;
 }
 
 .row__poster:hover {
-    transform: scale(1.08); /* ማውዝ ሲያርፍበት እንዲሰፋ */
+  transform: scale(1.08); /* ሲነካ ትንሽ እንዲያድግ */
+  opacity: 1;
 }
