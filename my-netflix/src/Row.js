@@ -20,7 +20,7 @@ function Row({ title, fetchUrl }) {
                     <img 
                         key={movie.id}
                         className="row__poster"
-                        src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} 
+                        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`} 
                         alt={movie.name} 
                     />
                 ))}
