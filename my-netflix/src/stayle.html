@@ -1,113 +1,59 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>የፊልም ትሬለር</title>
+    <title>Trailer Test</title>
     <style>
-        /* የፎቶዎች አቀማመጥ */
-        .movie-container {
-            display: flex;
-            gap: 20px;
-            padding: 20px;
-            flex-wrap: wrap; /* ስክሪኑ ሲጠብ ወደ ታች እንዲወርዱ */
+        .movie-container { display: flex; gap: 15px; padding: 20px; }
+        .movie-poster { width: 150px; cursor: pointer; border-radius: 8px; border: 2px solid #ddd; }
+        
+        /* ቪዲዮው የሚከፈትበት ጥቁር ዳራ */
+        .modal { 
+            display: none; position: fixed; top: 0; left: 0; 
+            width: 100%; height: 100%; background: rgba(0,0,0,0.8); 
+            justify-content: center; align-items: center; z-index: 999;
         }
-
-        .movie-poster {
-            width: 200px;
-            cursor: pointer;
-            transition: 0.3s;
-            border-radius: 10px;
-        }
-
-        .movie-poster:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-
-        /* የቪዲዮ ማሳያ ሳጥን (Modal) */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        .modal-content {
-            position: relative;
-            width: 80%;
-            max-width: 800px;
-        }
-
-        #trailer-video {
-            width: 100%;
-            height: 450px;
-            border: 2px solid #fff;
-        }
-
-        /* የመዝጊያ ቁልፍ (X) */
-        .close-btn {
-            position: absolute;
-            top: -40px;
-            right: 0;
-            color: white;
-            font-size: 40px;
-            cursor: pointer;
-        }
+        .modal-content { position: relative; width: 80%; max-width: 700px; }
+        .close-btn { position: absolute; top: -35px; right: 0; color: #fff; font-size: 30px; cursor: pointer; }
+        iframe { width: 100%; height: 400px; }
     </style>
 </head>
 <body>
 
     <div class="movie-container">
-        <img src="https://via.placeholder.com/200x300?text=Movie+1" 
-             class="movie-poster" 
-             data-trailer="https://www.youtube.com/embed/dQw4w9WgXcQ" 
-             alt="Movie 1">
-
-        <img src="https://via.placeholder.com/200x300?text=Movie+2" 
-             class="movie-poster" 
-             data-trailer="https://www.youtube.com/embed/tgbNymZ7vqY" 
-             alt="Movie 2">
+        <img src="https://via.placeholder.com/150x220" class="movie-poster" data-trailer="https://www.youtube.com/embed/dQw4w9WgXcQ">
+        <img src="https://via.placeholder.com/150x220" class="movie-poster" data-trailer="https://www.youtube.com/embed/tgbNymZ7vqY">
     </div>
 
     <div id="video-modal" class="modal">
         <div class="modal-content">
-            <span class="close-btn">&times;</span>
+            <span class="close-btn" onclick="closeVideo()">&times;</span>
             <iframe id="trailer-video" src="" frameborder="0" allowfullscreen></iframe>
         </div>
     </div>
 
     <script>
-        const posters = document.querySelectorAll('.movie-poster');
         const modal = document.getElementById('video-modal');
         const trailerFrame = document.getElementById('trailer-video');
-        const closeBtn = document.querySelector('.close-btn');
+        const posters = document.querySelectorAll('.movie-poster');
 
         posters.forEach(poster => {
-            poster.addEventListener('click', () => {
-                const videoUrl = poster.getAttribute('data-trailer');
-                trailerFrame.src = videoUrl;
+            poster.onclick = function() {
+                const url = this.getAttribute('data-trailer');
+                trailerFrame.src = url;
                 modal.style.display = 'flex';
-            });
+            };
         });
 
-        // መዝጊያውን ሲነኩ
-        closeBtn.onclick = () => {
+        function closeVideo() {
             modal.style.display = 'none';
-            trailerFrame.src = ""; 
-        };
+            trailerFrame.src = ""; // ቪዲዮውን ያቆመዋል
+        }
 
-        // ከሳጥኑ ውጭ (ጥቁሩ ቦታ) ሲነካ እንዲዘጋ
-        window.onclick = (event) => {
-            if (event.target == modal) {
-                modal.style.display = 'none';
-                trailerFrame.src = "";
-            }
-        };
+        // ከቪዲዮው ውጭ ጥቁሩን ቦታ ሲነኩ እንዲዘጋ
+        window.onclick = function(event) {
+            if (event.target == modal) { closeVideo(); }
+        }
     </script>
+
 </body>
 </html>
