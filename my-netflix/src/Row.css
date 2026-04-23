@@ -4,26 +4,34 @@
 }
 
 .row__posters {
-  display: flex; /* ምስሎቹን ጎን ለጎን ያሰልፋል */
-  overflow-y: hidden; /* ወደ ታች እንዳይወርድ */
-  overflow-x: scroll; /* ወደ ጎን እንዲንሸራተት */
+  display: flex; /* ምስሎቹን በጎን በኩል እንዲሰለፉ ያደርጋል */
+  overflow-y: hidden;
+  overflow-x: scroll;
   padding: 20px;
 }
 
-/* Scrollbar-ው እንዳይታይ (Optional) */
+/* ስክሮል ባሩ እንዳይታይ */
 .row__posters::-webkit-scrollbar {
   display: none;
 }
 
 .row__poster {
-  object-fit: contain; /* ምስሉ ሳይቆረጥ ሳጥኑ ውስጥ እንዲገባ ያደርጋል */
+  object-fit: contain;
   width: 100%;
-  max-height: 250px; /* ቁመቱን በመቀነስ ሙሉ ምስሉ እንዲታይ ያደርጋል */
+  max-height: 100px; /* ትናንሽ ምስሎች */
   margin-right: 10px;
   transition: transform 450ms;
 }
 
 .row__poster:hover {
-  transform: scale(1.08); /* ሲነካ ትንሽ እንዲያድግ */
-  opacity: 1;
+  transform: scale(1.08);
+}
+
+/* ለትልልቆቹ (Netflix Originals) ምስሎች */
+.row__posterLarge {
+  max-height: 250px;
+}
+
+.row__posterLarge:hover {
+  transform: scale(1.09);
 }
