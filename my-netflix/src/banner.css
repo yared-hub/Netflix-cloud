@@ -17,19 +17,21 @@
   padding-bottom: 0.3rem;
 }
 
-.banner_button {
+.banner__button {
   cursor: pointer;
   color: #fff;
   outline: none;
   border: none;
   font-weight: 700;
   border-radius: 0.2vw;
-  padding: 0.5rem 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   margin-right: 1rem;
+  padding-top: 0.5rem;
   background-color: rgba(51, 51, 51, 0.5);
+  padding-bottom: 0.5rem;
 }
-
-.banner_button:hover {
+.banner__button:hover {
   color: #000;
   background-color: #e6e6e6;
   transition: all 0.2s;
@@ -46,8 +48,10 @@
 
 .banner--fadeBottom {
   height: 7.4rem;
-  background-image: linear-gradient(180deg, transparent, rgba(37, 37, 37, 0.61), #111);
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  background-image: linear-gradient(
+    180deg,
+    transparent,
+    rgba(37, 37, 37, 0.61),
+    #111
+  );
 }
