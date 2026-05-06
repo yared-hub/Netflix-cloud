@@ -3,19 +3,19 @@ import './App.css';
 import Row from './Row';
 import requests from './requests';
 import Banner from './banner';
-import Nav from './Nav'; // Navbar ፋይልህ Nav.js ከሆነ
-import Footer from './Footer'; // Footer ፋይልህ Footer.js ከሆነ
+import Nav from './Nav'; 
+import Footer from './Footer'; 
 
 function App() {
   return (
     <div className="app">
-      {/* 1. Navbar ሁሌም ከላይ መሆን አለበት */}
+    
       <Nav /> 
 
-      {/* 2. ትልቁ ምስል (Banner) */}
+      
       <Banner />
 
-      {/* 3. የፊልሞች ዝርዝር (Rows) */}
+    
       <Row 
         title="NETFLIX ORIGINALS" 
         fetchUrl={requests.fetchNetflixOriginals} 
@@ -29,7 +29,7 @@ function App() {
       <Row title="Romance Movies" fetchUrl={requests.fetchRomanceMovies} />
       <Row title="Documentaries" fetchUrl={requests.fetchDocumentaries} />
 
-      {/* 4. Footer ሁሌም ከመጨረሻው Row በታች ይገባል */}
+    
       <Footer />
     </div>
   );
