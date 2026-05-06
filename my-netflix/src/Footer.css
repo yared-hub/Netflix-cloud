@@ -1,0 +1,14 @@
+.footer {
+  color: gray;
+  max-width: 1000px;
+  margin: 50px auto;
+  padding: 0 20px;
+}
+.footer__links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.footer__links ul { list-style: none; padding: 0; }
+.footer__links li { font-size: 13px; margin-bottom: 10px; cursor: pointer; }
+.footer__links li:hover { text-decoration: underline; }

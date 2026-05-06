@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import './Navbar.css';
+import './Nav.css';
 
-function Navbar() {
+function Nav() {
   const [show, handleShow] = useState(false);
 
   
