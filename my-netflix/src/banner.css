@@ -1,23 +1,23 @@
-.banner {
+.Banner {
   color: white;
   height: 80vh;
   position: relative;
   object-fit: contain;
 }
 
-.banner__contents {
+.Banner__contents {
   margin-left: 30px;
   padding-top: 140px;
   height: 190px; 
 }
 
-.banner_title {
+.Banner_title {
   font-size: 3rem;
   font-weight: 800;
   padding-bottom: 0.3rem;
 }
 
-.banner__button {
+.Banner__button {
   cursor: pointer;
   color: #fff;
   outline: none;
@@ -31,13 +31,13 @@
   background-color: rgba(51, 51, 51, 0.5);
   padding-bottom: 0.5rem;
 }
-.banner__button:hover {
+.Banner__button:hover {
   color: #000;
   background-color: #e6e6e6;
   transition: all 0.2s;
 }
 
-.banner_description {
+.Banner_description {
   width: 45rem;
   line-height: 1.3;
   padding-top: 1rem;
@@ -46,7 +46,7 @@
   height: 80px;
 }
 
-.banner--fadeBottom {
+.Banner--fadeBottom {
   height: 7.4rem;
   background-image: linear-gradient(
     180deg,
