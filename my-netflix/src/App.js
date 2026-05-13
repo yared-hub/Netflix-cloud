@@ -19,6 +19,7 @@ import {
 function App() {
 
   const [user, setUser] = useState(null);
+  const [search, setSearch] = useState("")
 
   useEffect(() => {
 
@@ -109,6 +110,16 @@ function App() {
         </button>
 
       </div>
+      <div className="searchBox">
+
+  <input
+    type="text"
+    placeholder="Search movies..."
+    value={search}
+    onChange={(e) => setSearch(e.target.value)}
+  />
+
+</div>
 
       <Banner />
 
