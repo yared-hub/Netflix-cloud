@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 
 import Row from "./Row";
@@ -11,12 +11,25 @@ import { auth, provider } from "./firebase";
 
 import {
   signInWithPopup,
-  signOut
+  signOut,
+  onAuthStateChanged
 } from "firebase/auth";
 
 function App() {
 
   const [user, setUser] = useState(null);
+
+  useEffect(() => {
+
+  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+
+    setUser(currentUser);
+
+  });
+
+  return () => unsubscribe();
+
+}, []);
 
   // SIGN IN
   const signIn = () => {
