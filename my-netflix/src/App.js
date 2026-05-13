@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
 
 import Row from "./Row";
@@ -8,15 +8,24 @@ import Nav from "./Nav";
 import Footer from "./Footer";
 
 import { auth, provider } from "./firebase";
-import { signInWithPopup, signOut } from "firebase/auth";
+
+import {
+  signInWithPopup,
+  signOut
+} from "firebase/auth";
 
 function App() {
 
-  // GOOGLE SIGN IN
+  const [user, setUser] = useState(null);
+
+  // SIGN IN
   const signIn = () => {
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result.user);
+
+        setUser(result.user);
+
         alert("Login Successful");
       })
       .catch((error) => {
@@ -29,6 +38,7 @@ function App() {
   const logout = () => {
     signOut(auth)
       .then(() => {
+        setUser(null);
         alert("Logged Out");
       })
       .catch((error) => {
@@ -42,13 +52,39 @@ function App() {
       <Nav />
 
       <div style={{ padding: "20px" }}>
-        <button onClick={signIn}>
-          Sign In With Google
-        </button>
 
-        <button onClick={logout} style={{ marginLeft: "10px" }}>
-          Logout
-        </button>
+        {!user ? (
+
+          <button onClick={signIn}>
+            Sign In With Google
+          </button>
+
+        ) : (
+
+          <div>
+
+            <h2>
+              Welcome {user.displayName}
+            </h2>
+
+            <img
+              src={user.photoURL}
+              alt="profile"
+              width="80"
+              style={{ borderRadius: "50%" }}
+            />
+
+            <br />
+            <br />
+
+            <button onClick={logout}>
+              Logout
+            </button>
+
+          </div>
+
+        )}
+
       </div>
 
       <Banner />
