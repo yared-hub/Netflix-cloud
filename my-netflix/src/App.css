@@ -5,3 +5,7 @@
 .App {
   background-color: #111;
 }
+button{
+  position: relative;
+  z-index: 999;
+}
