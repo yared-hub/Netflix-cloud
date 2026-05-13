@@ -7,12 +7,13 @@ import Banner from "./Banner";
 import Nav from "./Nav";
 import Footer from "./Footer";
 
-import { auth, provider } from "./firebase";
+import { auth } from "./firebase";
 
 import {
+  GoogleAuthProvider,
   signInWithPopup,
   signOut,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from "firebase/auth";
 
 function App() {
@@ -21,82 +22,91 @@ function App() {
 
   useEffect(() => {
 
-  const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
 
-    setUser(currentUser);
+      setUser(currentUser);
 
-  });
+    });
 
-  return () => unsubscribe();
+    return () => unsubscribe();
 
-}, []);
+  }, []);
 
-  // SIGN IN
   const signIn = () => {
+
+    const provider = new GoogleAuthProvider();
+
     signInWithPopup(auth, provider)
       .then((result) => {
+
         console.log(result.user);
 
-        setUser(result.user);
-
-        alert("Login Successful");
       })
       .catch((error) => {
+
         console.log(error);
-        alert(error.message);
+
       });
   };
 
-  // LOGOUT
   const logout = () => {
-    signOut(auth)
-      .then(() => {
-        setUser(null);
-        alert("Logged Out");
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
+    signOut(auth);
+
   };
 
-  return (
-    <div className="app">
+  // LOGIN SCREEN
+  if (!user) {
 
-      <Nav />
+    return (
 
-      <div style={{ padding: "20px" }}>
+      <div className="loginScreen">
 
-        {!user ? (
+        <img
+          className="loginLogo"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          alt=""
+        />
+
+        <div className="loginBody">
+
+          <h1>
+            Unlimited movies, TV shows, and more
+          </h1>
+
+          <h2>
+            Watch anywhere. Cancel anytime.
+          </h2>
 
           <button onClick={signIn}>
             Sign In With Google
           </button>
 
-        ) : (
+        </div>
 
-          <div>
+      </div>
 
-            <h2>
-              Welcome {user.displayName}
-            </h2>
+    );
+  }
 
-            <img
-              src={user.photoURL}
-              alt="profile"
-              width="80"
-              style={{ borderRadius: "50%" }}
-            />
+  // HOME SCREEN
+  return (
 
-            <br />
-            <br />
+    <div className="app">
 
-            <button onClick={logout}>
-              Logout
-            </button>
+      <Nav />
 
-          </div>
+      <div className="profileSection">
 
-        )}
+        <img
+          className="profilePic"
+          src={user.photoURL}
+          alt=""
+        />
+
+        <button onClick={logout}>
+          Logout
+        </button>
 
       </div>
 
@@ -146,6 +156,7 @@ function App() {
       <Footer />
 
     </div>
+
   );
 }
 

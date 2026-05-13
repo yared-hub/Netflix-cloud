@@ -1,11 +1,117 @@
 *{
   margin: 0;
-  padding: 0;
 }
-.App {
+
+.app{
   background-color: #111;
 }
-button{
+
+/* LOGIN SCREEN */
+
+.loginScreen{
   position: relative;
+  height: 100vh;
+
+  background: url("https://assets.nflxext.com/ffe/siteui/vlv3/9b4c6d44-3df3-4cc2-bdb5-cf9db8b3d3c1/web/ET-en-20240506-popsignuptwoweeks-perspective_alpha_website_large.jpg")
+    center no-repeat;
+
+  background-size: cover;
+}
+
+.loginScreen::before{
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background-color: rgba(0,0,0,0.6);
+}
+
+.loginLogo{
+  position: fixed;
+
+  left: 20px;
+  top: 20px;
+
+  width: 150px;
+
+  object-fit: contain;
+
+  z-index: 2;
+}
+
+.loginBody{
+  position: absolute;
+
+  top: 30%;
+
+  width: 100%;
+
+  text-align: center;
+
+  z-index: 2;
+
+  color: white;
+}
+
+.loginBody > h1{
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.loginBody > h2{
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.loginBody > button{
+  padding: 15px 30px;
+
+  font-size: 1rem;
+
+  color: white;
+
+  background-color: #e50914;
+
+  border: none;
+
+  cursor: pointer;
+}
+
+/* PROFILE */
+
+.profileSection{
+  position: fixed;
+
+  top: 70px;
+  right: 20px;
+
   z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profilePic{
+  width: 60px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.profileSection > button{
+  padding: 8px 15px;
+
+  border: none;
+
+  background-color: #e50914;
+
+  color: white;
+
+  cursor: pointer;
 }
