@@ -1,24 +1,35 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
-import Row from './Row';
-import requests from './requests';
-import Banner from './Banner';
-import Nav from './Nav';
-import Footer from './Footer';
+import Row from "./Row";
+import requests from "./requests";
+import Banner from "./Banner";
+import Nav from "./Nav";
+import Footer from "./Footer";
 
-import { auth } from './firebase';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { auth, provider } from "./firebase";
+import { signInWithPopup, signOut } from "firebase/auth";
 
 function App() {
 
+  // GOOGLE SIGN IN
   const signIn = () => {
-    const provider = new GoogleAuthProvider();
-
     signInWithPopup(auth, provider)
       .then((result) => {
         console.log(result.user);
         alert("Login Successful");
+      })
+      .catch((error) => {
+        console.log(error);
+        alert(error.message);
+      });
+  };
+
+  // LOGOUT
+  const logout = () => {
+    signOut(auth)
+      .then(() => {
+        alert("Logged Out");
       })
       .catch((error) => {
         console.log(error);
@@ -30,9 +41,15 @@ function App() {
 
       <Nav />
 
-      <button onClick={signIn}>
-        Sign in with Google
-      </button>
+      <div style={{ padding: "20px" }}>
+        <button onClick={signIn}>
+          Sign In With Google
+        </button>
+
+        <button onClick={logout} style={{ marginLeft: "10px" }}>
+          Logout
+        </button>
+      </div>
 
       <Banner />
 
