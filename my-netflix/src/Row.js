@@ -50,11 +50,9 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 //   );
 const filteredMovies = movies.filter(
   (movie) =>
-    movie?.title
-      ?.toLowerCase()
+    movie?.title ?.toLowerCase()
       .includes((search || "").toLowerCase()) ||
-    movie?.name
-      ?.toLowerCase()
+    movie?.name ?.toLowerCase()
       .includes((search || "").toLowerCase())
 );
   const opts = {
@@ -85,7 +83,7 @@ const filteredMovies = movies.filter(
               isLargeRow ? movie.poster_path : movie.backdrop_path
             }`}
 
-            alt={movie.name}
+            alt={movie.title || movie. name}
         />
 
         ))}
