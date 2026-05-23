@@ -70,8 +70,12 @@ const filteredMovies = movies.filter((movie) => {
       <h2>{title}</h2>
 
       <div className="row__posters">
-        {console.log(filteredMovies)}
-        {filteredMovies.map((movie) => (
+        {filteredMovies
+  .filter(
+    (movie) =>
+      movie.poster_path || movie.backdrop_path
+  )
+  .map((movie) => (
 
           <img
             key={movie.id}
