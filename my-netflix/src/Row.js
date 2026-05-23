@@ -70,7 +70,7 @@ const filteredMovies = movies.filter((movie) => {
       <h2>{title}</h2>
 
       <div className="row__posters">
-  .filter(
+  {filteredMovies.filter(
     (movie) =>
       movie.poster_path || movie.backdrop_path
   )
@@ -95,12 +95,13 @@ const filteredMovies = movies.filter((movie) => {
 
             alt={movie.title || movie. name}
         />
+        </div>
 
         ))}
 
       </div>
 
-      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />)}
+      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
 
     </div>
   );
