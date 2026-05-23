@@ -100,7 +100,7 @@ const filteredMovies = movies.filter((movie) => {
 
       </div>
 
-      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />)}
 
     </div>
   );
