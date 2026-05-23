@@ -77,10 +77,6 @@ const filteredMovies = movies.filter((movie) => {
 
   <div key={movie.id}>
 
-    <h1 style={{ color: "white" }}>
-      {movie.title || movie.name}
-    </h1>
-
     <img
             key={movie.id}
 
