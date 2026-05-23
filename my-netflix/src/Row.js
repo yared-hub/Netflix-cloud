@@ -24,6 +24,7 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 
   }, [fetchUrl]);
 
+
   const handleClick = (movie) => {
 
     if (trailerUrl) {
@@ -48,13 +49,13 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
 //     movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
 //     movie?.name?.toLowerCase().includes(search.toLowerCase())
 //   );
-const filteredMovies = movies.filter(
-  (movie) =>
-    movie?.title?.toLowerCase()
-      .includes((search || "").toLowerCase()) ||
-    movie?.name?.toLowerCase()
-      .includes((search || "").toLowerCase())
-);
+const filteredMovies = movies.filter((movie) => {
+  const title = (movie.title || "").toLowerCase();
+  const name = (movie.name || "").toLowerCase();
+  const query = search.toLowerCase();
+
+  return title.includes(query) || name.includes(query);
+});
   const opts = {
     height: "390",
     width: "100%",
