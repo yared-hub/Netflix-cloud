@@ -83,8 +83,6 @@ const filteredMovies = movies.filter((movie) => {
     </h1>
 
     <img
-
-          <img
             key={movie.id}
 
             onClick={() => handleClick(movie)}
