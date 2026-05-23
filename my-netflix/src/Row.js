@@ -70,7 +70,7 @@ const filteredMovies = movies.filter((movie) => {
       <h2>{title}</h2>
 
       <div className="row__posters">
-
+        {console.log(filteredMovies)}
         {filteredMovies.map((movie) => (
 
           <img
