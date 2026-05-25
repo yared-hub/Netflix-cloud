@@ -126,23 +126,26 @@ function App() {
 
       <Banner />
 
-      {search && (
+     {search && (
 
-        <div className="searchResults">
+  <div className="searchResults">
 
-          {filteredMovies.map((movie) => (
+    {filteredMovies
+      .filter((movie) => movie.poster_path)
+      .map((movie) => (
 
-            <img
-              key={movie.id}
-              src={'https://image.tmdb.org/t/p/original/${movie.poster_path}'}
-              alt={movie.title}
-              className="row__poster"
-            />
-          ))}
+        <img
+          key={movie.id}
+          src={'https://image.tmdb.org/t/p/w300${movie.poster_path}'}
+          alt={movie.title}
+          className="searchPoster"
+        />
 
-        </div>
-      )}
+    ))}
 
+  </div>
+
+)}
      {!search && (
   <>
     <Row

@@ -142,3 +142,21 @@
 
   color: white;
 }
+
+.searchResults{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  padding:20px;
+  background:black;
+}
+
+.searchPoster{
+  width:200px;
+  border-radius:10px;
+  transition:0.3s;
+}
+
+.searchPoster:hover{
+  transform:scale(1.08);
+}
