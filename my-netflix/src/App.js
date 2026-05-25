@@ -134,12 +134,15 @@ function App() {
       .filter((movie) => movie.poster_path)
       .map((movie) => (
 
-        <img
-          key={movie.id}
-          src={'https://image.tmdb.org/t/p/w500${movie.poster_path}'}
-          alt={movie.title}
-          className="searchPoster"
-        />
+       <img
+  key={movie.id}
+  onClick={() => handleClick(movie)}
+  className={'row__poster ${isLargeRow && "row__posterLarge"}'}
+  src={'https://image.tmdb.org/t/p/original${
+    isLargeRow ? movie.poster_path : movie.backdrop_path
+  }'}
+  alt={movie.title || movie.name}
+/>
 
     ))}
 
