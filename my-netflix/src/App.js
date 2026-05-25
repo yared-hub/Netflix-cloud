@@ -19,8 +19,8 @@ import {
 function App() {
 
   const [user, setUser] = useState(null);
-  const [search, setSearch] = useState("")
-
+  const [search, setSearch] = useState("");
+  const [allMovies, setAllMovies] = useState([]);
   useEffect(() => {
 
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -58,7 +58,11 @@ function App() {
 
   // LOGIN SCREEN
   if (!user) {
-
+const filteredMovies = allMovies.filter(
+  (movie) =>
+    movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
+    movie?.name?.toLowerCase().includes(search.toLowerCase())
+);
     return (
 
       <div className="loginScreen">
@@ -95,7 +99,7 @@ function App() {
 
     <div className="app">
 
-      <Nav />
+      <Nav search={search} setSearch={setSearch} />
 
       <div className="profileSection">
 
