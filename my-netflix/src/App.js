@@ -108,6 +108,7 @@ function App() {
         search={search}
         setSearch={setSearch}
       />
+      <Banner/>
 
       <div className="profileSection">
 
