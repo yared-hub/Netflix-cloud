@@ -4,7 +4,7 @@ import './Row.css';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
 
-function Row({ title, fetchUrl, isLargeRow, setAllMovies }) {
+function Row({ title, fetchUrl, isLargeRow, setAllMovies, search }) {
 
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
