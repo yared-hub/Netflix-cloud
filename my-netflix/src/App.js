@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
-
 import Row from "./Row";
 import requests from "./requests";
 import Banner from "./Banner";
@@ -19,15 +18,19 @@ import {
 function App() {
 
   const [user, setUser] = useState(null);
+
   const [search, setSearch] = useState("");
+
   const [allMovies, setAllMovies] = useState([]);
+
   useEffect(() => {
 
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-
-      setUser(currentUser);
-
-    });
+    const unsubscribe = onAuthStateChanged(
+      auth,
+      (currentUser) => {
+        setUser(currentUser);
+      }
+    );
 
     return () => unsubscribe();
 
@@ -39,30 +42,32 @@ function App() {
 
     signInWithPopup(auth, provider)
       .then((result) => {
-
         console.log(result.user);
-
       })
       .catch((error) => {
-
         console.log(error);
-
       });
   };
 
   const logout = () => {
-
     signOut(auth);
-
   };
 
+  const filteredMovies = allMovies.filter(
+    (movie) =>
+      movie?.title
+        ?.toLowerCase()
+        .includes(search.toLowerCase()) ||
+
+      movie?.name
+        ?.toLowerCase()
+        .includes(search.toLowerCase())
+  );
+
   // LOGIN SCREEN
+
   if (!user) {
-const filteredMovies = allMovies.filter(
-  (movie) =>
-    movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
-    movie?.name?.toLowerCase().includes(search.toLowerCase())
-);
+
     return (
 
       <div className="loginScreen">
@@ -90,16 +95,19 @@ const filteredMovies = allMovies.filter(
         </div>
 
       </div>
-
     );
   }
 
   // HOME SCREEN
+
   return (
 
     <div className="app">
 
-      <Nav search={search} setSearch={setSearch} />
+      <Nav
+        search={search}
+        setSearch={setSearch}
+      />
 
       <div className="profileSection">
 
@@ -114,68 +122,87 @@ const filteredMovies = allMovies.filter(
         </button>
 
       </div>
-      <div className="searchBox">
-
-
-
-</div>
 
       <Banner />
+
+      {search && (
+
+        <div className="searchResults">
+
+          {filteredMovies.map((movie) => (
+
+            <img
+              key={movie.id}
+              src={https://image.tmdb.org/t/p/original/${movie.poster_path}}
+              alt={movie.title}
+              className="row__poster"
+            />
+          ))}
+
+        </div>
+      )}
 
       <Row
         title="NETFLIX ORIGINALS"
         fetchUrl={requests.fetchNetflixOriginals}
         isLargeRow={true}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Trending Now"
         fetchUrl={requests.fetchTrending}
-       search={search} 
+        search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Top Rated"
         fetchUrl={requests.fetchTopRated}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Action Movies"
         fetchUrl={requests.fetchActionMovies}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Comedy Movies"
         fetchUrl={requests.fetchComedyMovies}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Horror Movies"
         fetchUrl={requests.fetchHorrorMovies}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Romance Movies"
         fetchUrl={requests.fetchRomanceMovies}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Row
         title="Documentaries"
         fetchUrl={requests.fetchDocumentaries}
         search={search}
+        setAllMovies={setAllMovies}
       />
 
       <Footer />
 
     </div>
-
   );
-} 
+}
 
 export default App;

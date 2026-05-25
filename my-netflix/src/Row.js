@@ -4,7 +4,7 @@ import './Row.css';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
 
-function Row({ title, fetchUrl, isLargeRow, search }) {
+function Row({ title, fetchUrl, isLargeRow, setAllMovies }) {
 
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
@@ -16,6 +16,10 @@ function Row({ title, fetchUrl, isLargeRow, search }) {
       const request = await axios.get(fetchUrl);
 
       setMovies(request.data.results);
+      setAllMovies((prev) => [
+  ...prev,
+  ...request.data.results,
+]);
 
       return request;
     }
