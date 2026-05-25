@@ -116,12 +116,7 @@ const filteredMovies = allMovies.filter(
       </div>
       <div className="searchBox">
 
-  <input
-    type="text"
-    placeholder="Search movies..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-  />
+
 
 </div>
 
