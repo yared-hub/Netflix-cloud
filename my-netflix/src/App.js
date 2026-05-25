@@ -137,10 +137,10 @@ function App() {
        <img
   key={movie.id}
   onClick={() => handleClick(movie)}
-  className={'row__poster ${isLargeRow && "row__posterLarge"}'}
-  src={'https://image.tmdb.org/t/p/original${
+  className={`row__poster ${isLargeRow && "row__posterLarge"}`}
+  src={`https://image.tmdb.org/t/p/original${
     isLargeRow ? movie.poster_path : movie.backdrop_path
-  }'}
+  }`}
   alt={movie.title || movie.name}
 />
 
