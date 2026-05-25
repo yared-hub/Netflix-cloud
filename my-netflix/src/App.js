@@ -187,12 +187,12 @@ function App() {
       search={search}
       setAllMovies={setAllMovies}
     />
-  </>
-)}
 
-<Footer />
+
+
 
     </div>
+    <Footer />
   );
 }
 
