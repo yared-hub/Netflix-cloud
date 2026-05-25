@@ -143,64 +143,68 @@ function App() {
         </div>
       )}
 
-      <Row
-        title="NETFLIX ORIGINALS"
-        fetchUrl={requests.fetchNetflixOriginals}
-        isLargeRow={true}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+     {!search && (
+  <>
+    <Row
+      title="NETFLIX ORIGINALS"
+      fetchUrl={requests.fetchNetflixOriginals}
+      isLargeRow={true}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Trending Now"
-        fetchUrl={requests.fetchTrending}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Trending Now"
+      fetchUrl={requests.fetchTrending}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Top Rated"
-        fetchUrl={requests.fetchTopRated}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Top Rated"
+      fetchUrl={requests.fetchTopRated}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Action Movies"
-        fetchUrl={requests.fetchActionMovies}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Action Movies"
+      fetchUrl={requests.fetchActionMovies}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Comedy Movies"
-        fetchUrl={requests.fetchComedyMovies}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Comedy Movies"
+      fetchUrl={requests.fetchComedyMovies}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Horror Movies"
-        fetchUrl={requests.fetchHorrorMovies}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Horror Movies"
+      fetchUrl={requests.fetchHorrorMovies}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Romance Movies"
-        fetchUrl={requests.fetchRomanceMovies}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Romance Movies"
+      fetchUrl={requests.fetchRomanceMovies}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
 
-      <Row
-        title="Documentaries"
-        fetchUrl={requests.fetchDocumentaries}
-        search={search}
-        setAllMovies={setAllMovies}
-      />
+    <Row
+      title="Documentaries"
+      fetchUrl={requests.fetchDocumentaries}
+      search={search}
+      setAllMovies={setAllMovies}
+    />
+  </>
+)}
 
-      <Footer />
+<Footer />
 
     </div>
   );
