@@ -77,7 +77,7 @@ const filteredMovies = movies.filter((movie) => {
      <div className="row__posters">
   {filteredMovies
     .filter((movie) => movie.poster_path)
-    .map((filteredMovies) => (
+    .map((movie) => (
       <img
         key={movie.id}
         onClick={() => handleClick(movie)}
