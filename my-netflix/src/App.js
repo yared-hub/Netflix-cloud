@@ -76,6 +76,18 @@ function App() {
       <Nav search={search} setSearch={setSearch} />
 
       <Banner />
+      {search && (
+  <div className="searchResults">
+    {filteredMovies.map((movie) => (
+      <img
+        key={movie.id}
+        className="row__poster"
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        alt={movie.title || movie.name}
+      />
+    ))}
+  </div>
+)}
 
       <div className="profileSection">
         <img className="profilePic" src={user.photoURL} alt="" />
