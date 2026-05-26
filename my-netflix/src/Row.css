@@ -17,7 +17,7 @@
 
 .row__poster {
   object-fit: contain;
-  width: 100%;
+  width: 180px;
   max-height: 100px; /* ትናንሽ ምስሎች */
   margin-right: 10px;
   transition: transform 450ms;
