@@ -22,9 +22,14 @@
   margin-right: 10px;
   transition: transform 450ms;
 }
-
+@media (max-width: 768px) {
+  .row__poster {
+    max-height: 100px;
+  }
+}
 .row__poster:hover {
   transform: scale(1.08);
+  box-shadow: 0 0 20px rgb(255,255, 255,0.4);
 }
 
 /* ለትልልቆቹ (Netflix Originals) ምስሎች */
