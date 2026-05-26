@@ -76,7 +76,7 @@ const filteredMovies = movies.filter((movie) => {
 
      <div className="row__posters">
   {filteredMovies
-    .filter((movie) => movie.poster_path || movie.backdrop_path)
+    .filter((movie) => movie.poster_path)
     .map((movie) => (
       <img
         key={movie.id}
@@ -84,9 +84,7 @@ const filteredMovies = movies.filter((movie) => {
         className={`row__poster ${
           isLargeRow && "row__posterLarge"
         }`}
-        src={`https://image.tmdb.org/t/p/original/${
-          movie.poster_path || movie.backdrop_path
-        }`}
+        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
         alt={movie.title || movie.name}
       />
     ))}
