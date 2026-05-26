@@ -53,7 +53,7 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies, search, }) {
 //     movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
 //     movie?.name?.toLowerCase().includes(search.toLowerCase())
 //   );
-const filteredMovies = allMovies.filter((movie) => {
+const filteredMovies = setAllMovies.filter((movie) => {
   const title = (movie.title || "").toLowerCase();
   const name = (movie.name || "").toLowerCase();
   const query = (search || "").toLowerCase();
