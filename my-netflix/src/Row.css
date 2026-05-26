@@ -26,7 +26,16 @@
   .row__poster {
     max-height: 100px;
   }
+
+  .row__posterLarge {
+    max-height: 250px;
+  }
+
+  .row {
+    margin-left: 10px;
+  }
 }
+
 .row__poster:hover {
   transform: scale(1.08);
   box-shadow: 0 0 20px rgb(255,255, 255,0.4);
@@ -40,10 +49,6 @@
 .row__posterLarge:hover {
   transform: scale(1.09);
 }
-@media (max-width: 768px) {
-  .row__poster {
-    max-height: 150px; /* በስልክ ላይ ትንሽ እንዲያጥሩ */
-  }
   
   .row__posterLarge {
     max-height: 200px; /* ትልልቆቹ ፖስተሮች በስልክ ላይ የሚኖራቸው መጠን */
@@ -53,4 +58,15 @@
     font-size: 0.8rem; /* በስልክ ላይ ጽሁፉ እንዳይጨናነቅ */
     width: 80%;
   }
+.signin__btn {
+  background-color: #e50914;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 3px;
+}
+.signin__btn:hover {
+  opacity: 0.9;
 }
