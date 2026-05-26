@@ -72,33 +72,26 @@ const filteredMovies = movies.filter((movie) => {
     <div className="row">
 
       <h2>{title}</h2>
-
-      <div className="row__posters">
- {(search ? filteredMovies : movies)
-  .filter((movie) => movie.poster_path || movie.backdrop_path)
-  .map((movie) => (
-
     
-  <div key={movie.id}>
 
-    <img
-            key={movie.id}
+     <div className="row__posters">
+  {filteredMovies
+    .filter((movie) => movie.poster_path || movie.backdrop_path)
+    .map((movie) => (
+      <img
+        key={movie.id}
+        onClick={() => handleClick(movie)}
+        className={`row__poster ${
+          isLargeRow && "row__posterLarge"
+        }`}
+        src={`https://image.tmdb.org/t/p/original/${
+          movie.poster_path || movie.backdrop_path
+        }`}
+        alt={movie.title || movie.name}
+      />
+    ))}
+</div>
 
-            onClick={() => handleClick(movie)}
-
-            className={`row__poster ${isLargeRow && "row__posterLarge"}`}
-
-            src={`https://image.tmdb.org/t/p/original/${
-              movie.poster_path || movie.backdrop_path
-            }`}
-
-            alt={movie.title || movie. name}
-        />
-        </div>
-
-        ))}
-
-      </div>
 
       {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
 
