@@ -4,7 +4,7 @@ import './Row.css';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
 
-function Row({ title, fetchUrl, isLargeRow, setAllMovies, search, }) {
+function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
 
   const [movies, setMovies] = useState([]);
   const [trailerUrl, setTrailerUrl] = useState("");
@@ -53,7 +53,7 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies, search, }) {
 //     movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
 //     movie?.name?.toLowerCase().includes(search.toLowerCase())
 //   );
-const filteredMovies = setAllMovies.filter((movie) => {
+const filteredMovies = allMovies.filter((movie) => {
   const title = (movie.title || "").toLowerCase();
   const name = (movie.name || "").toLowerCase();
   const query = (search || "").toLowerCase();
