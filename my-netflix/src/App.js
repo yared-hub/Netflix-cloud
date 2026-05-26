@@ -21,6 +21,7 @@ function App() {
   const [user, setUser] = useState(null);
   const [search, setSearch] = useState("");
   const [allMovies, setAllMovies] = useState([]);
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
