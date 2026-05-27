@@ -27,6 +27,7 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
   ...request.data.results,
 ]);
 
+
       return request;
     }
 
@@ -56,7 +57,8 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
   };
 
 const saveMovie = async (movie) => {
-
+  console.log("saveMovie works");
+  
   const user = auth.currentUser;
 
   if (!user) {
@@ -85,6 +87,7 @@ const saveMovie = async (movie) => {
 
   } catch (error) {
     console.log(error);
+    alert(error.message);
   }
 };
 
@@ -134,11 +137,12 @@ const filteredMovies = movies.filter((movie) => {
     </button>
 
   </div>
-))
+))}
 
 
       {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
 
+    </div>
     </div>
   );
 }
