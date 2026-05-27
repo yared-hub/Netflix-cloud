@@ -68,6 +68,7 @@ const saveMovie = async (movie) => {
   }
 
   try {
+    alert("before setDoc");
     await setDoc(
       doc(
         db,
@@ -83,7 +84,7 @@ const saveMovie = async (movie) => {
         rating: movie.vote_average,
       }
     );
-
+alert("after setDoc");
     alert("Movie saved ❤️");
 
   } catch (error) {
