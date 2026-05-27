@@ -3,6 +3,12 @@ import axios from './axios';
 import './Row.css';
 import movieTrailer from 'movie-trailer';
 import YouTube from 'react-youtube';
+import { auth, db } from "./firebase";
+
+import {
+  doc,
+  setDoc
+} from "firebase/firestore";
 
 function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
 
@@ -49,6 +55,39 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
     }
   };
 
+const saveMovie = async (movie) => {
+
+  const user = auth.currentUser;
+
+  if (!user) {
+    alert("Please sign in first");
+    return;
+  }
+
+  try {
+    await setDoc(
+      doc(
+        db,
+        "users",
+        user.uid,
+        "favorites",
+        movie.id.toString()
+      ),
+      {
+        id: movie.id,
+        title: movie.title || movie.name,
+        poster: movie.poster_path,
+        rating: movie.vote_average,
+      }
+    );
+
+    alert("Movie saved ❤️");
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //  const filteredMovies = movies.filter((movie) =>
 //     movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
 //     movie?.name?.toLowerCase().includes(search.toLowerCase())
@@ -67,6 +106,7 @@ const filteredMovies = movies.filter((movie) => {
       autoplay: 1,
     },
   };
+  
 
   return (
     <div className="row">
@@ -78,17 +118,23 @@ const filteredMovies = movies.filter((movie) => {
   {filteredMovies
     .filter((movie) => movie.poster_path)
     .map((movie) => (
-      <img
-        key={movie.id}
-        onClick={() => handleClick(movie)}
-        className={`row__poster ${
-          isLargeRow && "row__posterLarge"
-        }`}
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title || movie.name}
-      />
-    ))}
-</div>
+  <div key={movie.id}>
+
+    <img
+      onClick={() => handleClick(movie)}
+      className={`row__poster ${
+        isLargeRow && "row__posterLarge"
+      }`}
+      src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+      alt={movie.title || movie.name}
+    />
+
+    <button onClick={() => saveMovie(movie)}>
+      ❤️
+    </button>
+
+  </div>
+))
 
 
       {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
