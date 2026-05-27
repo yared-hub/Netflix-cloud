@@ -57,7 +57,7 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
   };
 
 const saveMovie = async (movie) => {
-  console.log("saveMovie works");
+  console.log("button clicked");
   
   const user = auth.currentUser;
 
