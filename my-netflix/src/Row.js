@@ -60,6 +60,7 @@ const saveMovie = async (movie) => {
   console.log("button clicked");
   
   const user = auth.currentUser;
+  alert(user?.uid);
 
   if (!user) {
     alert("Please sign in first");
