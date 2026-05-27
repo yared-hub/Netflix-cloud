@@ -59,8 +59,12 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies,allMovies, search, }) {
 const saveMovie = async (movie) => {
   console.log("button clicked");
   
-  const user = auth.currentUser;
-  alert(user?.uid);
+ const user = auth.currentUser;
+
+if (!user?.uid) {
+  alert("User not ready");
+  return;
+}
 
   if (!user) {
     alert("Please sign in first");
