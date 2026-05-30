@@ -6,7 +6,7 @@
         .movie-container { display: flex; gap: 15px; padding: 20px; }
         .movie-poster { width: 150px; cursor: pointer; border-radius: 8px; border: 2px solid #ddd; }
         
-        /* ቪዲዮው የሚከፈትበት ጥቁር ዳራ */
+    
         .modal { 
             display: none; position: fixed; top: 0; left: 0; 
             width: 100%; height: 100%; background: rgba(0,0,0,0.8); 
@@ -49,7 +49,6 @@
             trailerFrame.src = ""; // ቪዲዮውን ያቆመዋል
         }
 
-        // ከቪዲዮው ውጭ ጥቁሩን ቦታ ሲነኩ እንዲዘጋ
         window.onclick = function(event) {
             if (event.target == modal) { closeVideo(); }
         }
