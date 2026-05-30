@@ -5,8 +5,11 @@ import {
   GoogleAuthProvider
 } from "firebase/auth";
 
-import {
-  getFirestore
+// ል
+import { 
+  initializeFirestore, 
+  persistentLocalCache, 
+  persistentMultipleTabManager 
 } from "firebase/firestore";
 
 const firebaseConfig = {
@@ -27,7 +30,11 @@ export const auth = getAuth(app);
 // Google Provider
 export const provider = new GoogleAuthProvider();
 
-// Firestore Database
-export const db = getFirestore(app);
+// 2. Firestore Database (በአዲሱ አወቃቀር ተቀይሯል)
+export const db = initializeFirestore(app, {
+  localCache: persistentLocalCache({
+    tabManager: persistentMultipleTabManager()
+  })
+});
 
 export default app;
