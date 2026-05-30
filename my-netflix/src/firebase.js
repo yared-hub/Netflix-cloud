@@ -5,7 +5,6 @@ import {
   GoogleAuthProvider
 } from "firebase/auth";
 
-// ል
 import { 
   initializeFirestore, 
   persistentLocalCache, 
@@ -30,11 +29,12 @@ export const auth = getAuth(app);
 // Google Provider
 export const provider = new GoogleAuthProvider();
 
-// 2. Firestore Database (በአዲሱ አወቃቀር ተቀይሯል)
+// Firestore Database (በ Long-Polling የታገዘ አዲስ አወቃቀር)
 export const db = initializeFirestore(app, {
   localCache: persistentLocalCache({
     tabManager: persistentMultipleTabManager()
-  })
+  }),
+  experimentalForceLongPolling: true // 👈 ኔትወርኩ ደርቆ እንዳይቀር የሚያስገድደው መስመር ይህ ነው!
 });
 
 export default app;
