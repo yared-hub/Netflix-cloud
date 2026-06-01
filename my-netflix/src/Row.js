@@ -88,7 +88,6 @@ if (!user?.uid) {
         rating: movie.vote_average,
       }
     );
-alert("after setDoc");
     alert("Movie saved ❤️");
 
   } catch (error) {

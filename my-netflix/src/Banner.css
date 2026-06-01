@@ -5,7 +5,7 @@
   object-fit: contain;
 }
 
-/* እዚህ ጋር b ትንሽ ፊደል መሆን አለበት */
+
 .banner__contents {
   margin-left: 30px;
   padding-top: 140px;
@@ -48,7 +48,7 @@
   height: 80px;
 }
 
-/* ለግራዲየንቱ ማስተካከያ ተደርጓል */
+
 .banner--fadeBottom {
   height: 7.4rem;
   background-image: linear-gradient(
