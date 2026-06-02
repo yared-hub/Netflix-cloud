@@ -117,7 +117,6 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies, allMovies, search }) {
       </div>
       {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
     </div>
-    </div>
   );
 }
 

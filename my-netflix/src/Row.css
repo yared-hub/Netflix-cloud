@@ -4,60 +4,109 @@
 }
 
 .row__posters {
-  display: flex; /* ምስሎቹን በጎን በኩል እንዲሰለፉ ያደርጋል */
+  display: flex;
   overflow-y: hidden;
   overflow-x: scroll;
-  padding: 20px;
+  padding: 20px 0; /* Adjust upper and lower padding to remove gaps */
 }
 
-/* ስክሮል ባሩ እንዳይታይ */
+/* Hide scrollbar */
 .row__posters::-webkit-scrollbar {
   display: none;
 }
 
-.row__poster {
-  object-fit: contain;
-  width: 180px;
-  max-height: 100px; /* ትናንሽ ምስሎች */
+/* 1. Fix the Container Size to match the original design */
+.row__posterContainer {
+  position: relative;
+  width: 180px;      /* Matches your original movie width */
+  height: 100px;     /* Matches your original max-height */
   margin-right: 10px;
+  flex-shrink: 0;
   transition: transform 450ms;
+  cursor: pointer;
 }
+
+/* Large Container for Netflix Originals */
+.row__posterContainerLarge {
+  width: 180px;
+  height: 250px;     /* Matches large poster height */
+}
+
+/* Zoom effect on hover */
+.row__posterContainer:hover {
+  transform: scale(1.08);
+  z-index: 10;
+}
+
+/* 2. Make the image fill 100% of its specific container */
+.row__poster {
+  object-fit: cover;  /* Prevents image distortion */
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+
+/* 3. Perfect Overlay alignment - matches container perfectly */
+.row__hoverOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  opacity: 0;
+  transition: opacity 300ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Fix underscores to show overlay on hover */
+.row__posterContainer:hover .row__hoverOverlay {
+  opacity: 1;
+}
+
+/* Movie Title Inside Overlay */
+.row__movieTitle {
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+  text-align: center;
+  padding: 0 5px;
+  margin-bottom: 5px;
+  white-space: normal;
+}
+
+/* Heart Button Inside Overlay */
+.row__heartButton {
+  background: none;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.row__heartButton:hover {
+  transform: scale(1.2);
+}
+
+/* Responsive design for mobile screens */
 @media (max-width: 768px) {
-  .row__poster {
-    max-height: 100px;
-  }
-
-  .row__posterLarge {
-    max-height: 250px;
-  }
-
   .row {
     margin-left: 10px;
   }
-}
-
-.row__poster:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 20px rgb(255,255, 255,0.4);
-}
-
-/* ለትልልቆቹ (Netflix Originals) ምስሎች */
-.row__posterLarge {
-  max-height: 250px;
-}
-
-.row__posterLarge:hover {
-  transform: scale(1.09);
-}
-  
-  .row__posterLarge {
-    max-height: 200px; /* ትልልቆቹ ፖስተሮች በስልክ ላይ የሚኖራቸው መጠን */
+  .row__posterContainer {
+    width: 140px;
+    height: 80px;
   }
-
-  .Banner__description {
-    font-size: 0.8rem; /* በስልክ ላይ ጽሁፉ እንዳይጨናነቅ */
-    width: 80%;
+  .row__posterContainerLarge {
+    width: 140px;
+    height: 190px;
   }
+}
+
 .signin__btn {
   background-color: #e50914;
   color: white;
@@ -67,6 +116,7 @@
   font-weight: 600;
   border-radius: 3px;
 }
+
 .signin__btn:hover {
   opacity: 0.9;
 }
