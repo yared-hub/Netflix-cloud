@@ -90,7 +90,7 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies, allMovies, search }) {
     },
   };
 
-  return (
+ return (
     <div className="row">
       <h2>{title}</h2>
 
@@ -98,21 +98,25 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies, allMovies, search }) {
         {filteredMovies
           .filter((movie) => movie.poster_path)
           .map((movie) => (
-            <div key={movie.id}>
+            <div key={movie.id} className="row__posterContainer">
               <img
                 onClick={() => handleClick(movie)}
                 className={`row__poster ${isLargeRow && "row__posterLarge"}`}
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title || movie.name}
               />
-              <button onClick={() => saveMovie(movie)}>
-                ❤️
-              </button>
+              
+              <div className="row__hoverOverlay">
+                <p className="row__movieTitle">{movie.title || movie.name}</p>
+                <button className="row__heartButton" onClick={() => saveMovie(movie)}>
+                  ❤️
+                </button>
+              </div>
             </div>
           ))}
-
-        {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
       </div>
+      {trailerUrl && <YouTube videoId={trailerUrl} opts={opts} />}
+    </div>
     </div>
   );
 }
