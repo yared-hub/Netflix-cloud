@@ -106,9 +106,9 @@ function Row({ title, fetchUrl, isLargeRow, setAllMovies, allMovies, search }) {
                 alt={movie.title || movie.name}
               />
               
-              <div className="row__hoverOverlay">
-                <p className="row__movieTitle">{movie.title || movie.name}</p>
-                <button className="row__heartButton" onClick={() => saveMovie(movie)}>
+              <div className="row__underOverlay">
+                //<p className="row__movieTitle">{movie.title || movie.name}</p>
+                <button className="row__heartButton" onClick={(e) => saveMovie(movie)}>
                   ❤️
                 </button>
               </div>
