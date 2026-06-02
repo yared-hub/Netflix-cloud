@@ -104,3 +104,6 @@
 .signin__btn:hover {
   opacity: 0.9;
 }
+.row__movieTitle {
+  display: none;
+}
