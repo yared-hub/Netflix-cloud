@@ -18,8 +18,8 @@
 /* 1. Fix the Container Size to match the original design */
 .row__posterContainer {
   position: relative;
-  width: 180px;      /* Matches your original movie width */
-  height: 100px;     /* Matches your original max-height */
+  width: 140px;      /* Matches your original movie width */
+  height: 210px;     /* Matches your original max-height */
   margin-right: 10px;
   flex-shrink: 0;
   transition: transform 450ms;
@@ -29,7 +29,7 @@
 /* Large Container for Netflix Originals */
 .row__posterContainerLarge {
   width: 180px;
-  height: 250px;     /* Matches large poster height */
+  height: 270px;     /* Matches large poster height */
 }
 
 /* Zoom effect on hover */
