@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.css'; // ይህ ከCSS ፋይልህ ጋር ያገናኘዋል
+import './Nav.css'; 
 
 function Nav() {
   const [show, handleShow] = useState(false);
