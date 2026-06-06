@@ -34,13 +34,6 @@ function Nav() {
           <span>New & Popular</span>
         </div>
       </div>
-
-      {/* Right side: Search, Avatar, and Logout (This fixes the layout) */}
-      <div className="nav__right">
-        <input type="text" className="search" placeholder="Search movies..." />
-        <div className="nav__avatar">H</div>
-        <button className="nav__logout">Logout</button>
-      </div>
     </nav>
   );
 }
