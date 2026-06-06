@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import './Nav.css'; 
+import React, { useState, useEffect } from "react";
+import "./Nav.css";
 
-function Nav() {
+function Nav({ search, setSearch, userPhoto, logout }) {
   const [show, handleShow] = useState(false);
 
   useEffect(() => {
@@ -12,7 +12,9 @@ function Nav() {
         handleShow(false);
       }
     };
+
     window.addEventListener("scroll", handleScroll);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -20,13 +22,13 @@ function Nav() {
 
   return (
     <nav className={`nav ${show && "nav__black"}`}>
-      {/* canባLeft side: Logo and Links */}
       <div className="nav__left">
-        <img 
-          className="nav__logo" 
-          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" 
-          alt="Netflix Logo" 
+        <img
+          className="nav__logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          alt="Netflix Logo"
         />
+
         <div className="nav__links">
           <span>Home</span>
           <span>TV Shows</span>
@@ -35,11 +37,24 @@ function Nav() {
         </div>
       </div>
 
-      {/* Right side: Search, Avatar, and Logout (This fixes the layout) */}
       <div className="nav__right">
-        <input type="text" className="search" placeholder="Search movies..." />
-        <div className="nav__avatar">H</div>
-        <button className="nav__logout">Logout</button>
+        <input
+          type="text"
+          className="search"
+          placeholder="Search movies..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
+
+        <img
+          className="nav__avatar"
+          src={userPhoto || "https://via.placeholder.com/40"}
+          alt="Profile"
+        />
+
+        <button className="nav__logout" onClick={logout}>
+          Logout
+        </button>
       </div>
     </nav>
   );
