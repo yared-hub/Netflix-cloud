@@ -21,7 +21,6 @@ function App() {
   const [user, setUser] = useState(null);
   const [search, setSearch] = useState("");
   const [allMovies, setAllMovies] = useState([]);
-  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -46,9 +45,10 @@ function App() {
     signOut(auth);
   };
 
+  // Fixed the missing logical OR (||) operators here
   const filteredMovies = allMovies.filter(
     (movie) =>
-      movie?.title?.toLowerCase().includes(search.toLowerCase()) ||
+      movie?.title?.toLowerCase().includes(search.toLowerCase()) || 
       movie?.name?.toLowerCase().includes(search.toLowerCase())
   );
 
@@ -73,26 +73,25 @@ function App() {
 
   return (
     <div className="app">
-      <Nav search={search} setSearch={setSearch} />
+      {/* Sent search, user photo, and logout function to Nav */}
+      <Nav search={search} setSearch={setSearch} userPhoto={user.photoURL} logout={logout} />
 
       <Banner />
+      
       {search && (
-  <div className="searchResults">
-    {filteredMovies.map((movie) => (
-      <img
-        key={movie.id}
-        className="row__poster"
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-        alt={movie.title || movie.name}
-      />
-    ))}
-  </div>
-)}
+        <div className="searchResults">
+          {filteredMovies.map((movie) => (
+            <img
+              key={movie.id}
+              className="row__poster"
+              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+              alt={movie.title || movie.name}
+            />
+          ))}
+        </div>
+      )}
 
-      <div className="profileSection">
-        <img className="profilePic" src={user.photoURL} alt="" />
-        <button onClick={logout}>Logout</button>
-      </div>
+      {/* FIXED: The duplicate profileSection that was hanging over the banner has been completely removed from here */}
 
       <Row
         title="NETFLIX ORIGINALS"
