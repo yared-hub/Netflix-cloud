@@ -37,22 +37,32 @@
   font-weight: 500;
 }
 
-/* ይህ ክፍል ነው በቀኝ በኩል ያሉትን ነገሮች የሚያስተካክለው */
 .nav__right {
   display: flex;
   align-items: center;
   gap: 20px; 
 }
 
+
 .search {
+  width: 150px; 
   padding: 7px 12px;
   border: 1px solid rgba(255, 255, 255, 0.5);
   outline: none;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
   font-size: 14px;
+  border-radius: 4px;
+  
+  transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
 }
 
+
+.search:focus {
+  width: 250px; 
+  background-color: rgba(0, 0, 0, 0.9);
+  border-color: #e50914; 
+}
 .nav__avatar {
   width: 36px;
   height: 36px;
